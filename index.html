@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="js/vendors/bootstrap/css/bootstrap-cerulean.min.css" />
+		<link href="js/vendors/jquery-vertical-navigation/css/app.css" rel="stylesheet" />
+		<link rel="stylesheet" href="js/vendors/accordion/accordion.css" />
+		<script type="text/javascript" src="js/vendors/require.js" data-main = "js/myscript/main"></script>
+		<title>DocsPage</title>
+	</head>
+	<body>
+		<!--缩略图面板模版-->
+		<script type="text/x-template" id=contentItem-template>
+			<div class="col-sm-6 col-md-2">
+				<div class="thumbnail" @click="contentClickHandler(nail.id)">
+					<img  style="width: 80px;height: 65px;" src="{{nail.src}}" alt="{{nail.alt}}"/>
+				</div>
+				<div class="caption" style="text-align:center;font-size:14px">
+					<p style="cursor:pointer" @click="contentClickHandler(nail.id)">{{nail.text}}</p>
+				</div>
+			</div>
+		</script>
+		
+		<div id="docPage">
+			<div id="contentWrapper" class="container-fluid">
+				<div id="contentLeft">
+					<ul id="leftNavigation" class="accordion">
+					</ul>
+				</div>
+				<div id="contentRight">
+
+					<div class="row">
+						<div class="col-xs-11 col-md-11">
+							<ol class="breadcrumb" id="breadcrumb" style="min-height:38px;"></ol>
+						</div>
+						<div class="col-xs-1 col-md-1" style="padding-left:0px">
+							<button id="back2Map" class="btn btn-primary" onclick="parent.window.back2Map()">返回地图
+							</button>
+						</div>
+					</div>
+					<div id=filesPanel class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title row">
+								<div class="col-xs-9 col-sm-9">
+									<div class="input-group input-group-sm">
+										<input id="searchArea" type="text" class="form-control" placeholder="快速查询" aria-describedby="sizing-addon3">
+										<span class="input-group-btn">
+                                    <button id="goBtn" class="btn btn-primary" type="button">Go!</button>
+                                </span>
+									</div>
+								</div>
+								<div class="col-xs-3 col-sm-3 pull-right">
+									<div class="btn-group-sm" role="group">
+										<button type="button" id="backBtn" class="btn btn-primary">返回上一级</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="progress" class="progress" style="height: 10px">
+							<div class="progress-bar" style="height: 10px"></div>
+						</div>
+						<div class="panel-body">
+							<div id="content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
